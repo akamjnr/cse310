@@ -4,7 +4,7 @@ This software is a simple C# console application that displays "Hello, World!" o
 
 The purpose of creating this software is to practise using C# and become familiar with writing, running, and publishing a simple program.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](http://)
 
 # Development Environment
 
