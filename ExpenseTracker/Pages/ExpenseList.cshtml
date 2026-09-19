@@ -1,0 +1,54 @@
+@page
+@model ExpenseListModel
+
+@{
+    ViewData["Title"] = "Expense List";
+}
+
+<h1>Expense List</h1>
+
+@if (Model.Expenses.Count == 0)
+{
+    <p>No expenses have been added yet.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var expense in Model.Expenses)
+            {
+                <tr>
+                    <td>@expense.Date.ToShortDateString()</td>
+                    <td>@expense.Category</td>
+                    <td>@expense.Description</td>
+                    <td>R @expense.Amount.ToString("N2")</td>
+                    <td>
+                        <a class="btn btn-sm btn-primary" asp-page="/EditExpense" asp-route-id="@expense.Id">
+                            Edit
+                        </a>
+
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@expense.Id" style="display:inline;">
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a class="btn btn-primary" asp-page="/AddExpense">
+    Add Another Expense
+</a>

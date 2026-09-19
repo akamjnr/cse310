@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Expense Tracker";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Expense Tracker</h1>
+
+    <p>
+        Welcome to my Expense Tracker web application.
+    </p>
+
+    <p>
+        This application allows users to record their expenses
+        and view the expenses they have entered.
+    </p>
+
+    <a class="btn btn-primary" asp-page="/AddExpense">
+        Add an Expense
+    </a>
+
+    <a class="btn btn-secondary" asp-page="/ExpenseList">
+        View Expenses
+    </a>
+</div>
