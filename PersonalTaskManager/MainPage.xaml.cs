@@ -19,6 +19,7 @@ public partial class MainPage : ContentPage
 	{
 		base.OnAppearing();
 
+		// Refresh the task list when returning to the main page.
 		TaskList.ItemsSource = null;
 		TaskList.ItemsSource = tasks;
 	}
@@ -71,6 +72,7 @@ public partial class MainPage : ContentPage
 		SaveTasks();
 	}
 
+	// Saves the task list as JSON in local device storage.
 	private void SaveTasks()
 	{
 		string json = JsonSerializer.Serialize(tasks);
@@ -78,6 +80,7 @@ public partial class MainPage : ContentPage
 		Preferences.Default.Set("tasks", json);
 	}
 
+	// Loads previously saved tasks when the app starts.
 	private void LoadTasks()
 	{
 		string json = Preferences.Default.Get("tasks", string.Empty);
@@ -99,6 +102,7 @@ public partial class MainPage : ContentPage
 		}
 		catch (JsonException)
 		{
+			// Clear corrupted saved data so the app can start normally.
 			Preferences.Default.Remove("tasks");
 		}
 	}

@@ -34,6 +34,7 @@ public partial class TaskDetailsPage : ContentPage
 
     private void UpdateCompletionLabel()
     {
+        // Update the button text based on the task's completion status.
         CompletionLabel.Text = task.IsCompleted
             ? "Mark as Incomplete"
             : "Mark as Done";
@@ -64,6 +65,7 @@ public partial class TaskDetailsPage : ContentPage
         await Navigation.PopAsync();
     }
 
+    // Saves changes to the task list in local device storage.
     private void SaveTasks()
     {
         string json = JsonSerializer.Serialize(tasks);
