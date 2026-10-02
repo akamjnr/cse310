@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="PersonalTaskManager.TaskDetailsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Task Details">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="25"
+            Spacing="20">
+
+            <Label
+                Text="Task Details"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Text="Task"
+                FontSize="18"
+                FontAttributes="Bold"/>
+
+            <Label
+                x:Name="TaskLabel"
+                Text="Task"
+                FontSize="16"/>
+
+            <Label
+                Text="Description"
+                FontSize="18"
+                FontAttributes="Bold"
+                Margin="0,10,0,0"/>
+
+            <Label
+                x:Name="DescriptionLabel"
+                Text="No description provided."
+                FontSize="16"
+                LineBreakMode="WordWrap"/>
+
+            <HorizontalStackLayout
+                Spacing="10"
+                Margin="0,10,0,0">
+
+                <CheckBox
+                    x:Name="CompletionCheckBox"
+                    CheckedChanged="OnCompletionChanged"
+                    VerticalOptions="Center">
+
+                    <CheckBox.Triggers>
+                        <DataTrigger
+                            TargetType="CheckBox"
+                            Binding="{Binding IsChecked, Source={RelativeSource Self}}"
+                            Value="True">
+
+                            <Setter
+                                Property="Color"
+                                Value="Green"/>
+
+                        </DataTrigger>
+                    </CheckBox.Triggers>
+
+                </CheckBox>
+
+                <Label
+                    x:Name="CompletionLabel"
+                    Text="Mark as Done"
+                    FontSize="18"
+                    VerticalOptions="Center"/>
+
+            </HorizontalStackLayout>
+
+            <Button
+                Text="Delete Task"
+                FontSize="18"
+                HeightRequest="55"
+                Clicked="OnDeleteClicked"/>
+
+            <Button
+                Text="Back to Tasks"
+                FontSize="18"
+                HeightRequest="55"
+                Clicked="OnBackClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
