@@ -4,6 +4,8 @@ Personal Task Manager is a mobile application that helps users organize and keep
 
 The app is designed to be simple and easy to use. To add a task, the user enters a task title and description and selects "Add Task." The task then appears under "My Tasks." Users can select a task to open the Task Details page, where they can view the description, mark the task as completed or incomplete, or delete the task.
 
+The application includes a simple custom logo and a clean interface designed to make task management easy to understand and use.
+
 I created this application to improve my skills in mobile application development, C#, .NET MAUI, user interface design, navigation between pages, and local data storage. I also wanted to gain more experience building an application that saves user data so that it remains available when the application is closed and reopened.
 
 [Software Demo Video](http://)
